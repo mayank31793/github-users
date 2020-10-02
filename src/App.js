@@ -9,6 +9,7 @@ import followersImg from './assets/followers.svg';
 
 import './App.scss';
 import Loader from './components/loader/loader';
+import List from './components/list/list';
 
 function App() {
 	const [search, setSearch] = useState('');
@@ -31,10 +32,6 @@ function App() {
 		setSearch('');
 		setSearchDisplay({});
 	}
-
-	// const handleBlur = () => {
-	// 	setTypingStart(false);
-	// }
 
 	const handleAddUser = (e) => {
 		setSearchArray([searchDisplay,...searchArray]);
@@ -125,51 +122,7 @@ function App() {
 					<span>&#9660;</span>
 				</div>
 			</div>
-			<ul>
-				{
-				searchArray.map((res) => <li key={res.id}>
-					<div className="profilePic">
-						<img src={res.avatar_url} alt="avatar" />
-					</div>
-					<div className="profileInfo">
-						<div className="singleInfo">
-							<div className="icon">
-								<img src={nameImg} alt="name" />
-							</div>
-							<div className="iconInfo">
-								<p>{res.name}</p>
-							</div>
-						</div>
-						<div className="singleInfo">
-							<div className="icon">
-								<img src={githubImg} alt="github" />
-							</div>
-							<div className="iconInfo">
-								<a href={res.html_url} target="_blank"><p>{res.html_url}</p></a>
-							</div>
-						</div>
-						<div className="singleInfo">
-							<div className="icon">
-								<img src={locationImg} alt="location" />
-							</div>
-							<div className="iconInfo">
-								<p>{res.location != null ?<span>{res.location}</span>:<span>NULL</span> }</p>
-							</div>
-						</div>
-						<div className="singleInfo">
-							<div className="icon">
-								<img src={followersImg} />
-							</div>
-							<div className="iconInfo">
-								<p>{res.followers}</p>
-							</div>
-						</div>
-						<div className="deleteIcon" onClick={() => handleDelete(res.id,res.name)}>
-							<img src={deleteImg} alt="delete" />
-						</div>
-					</div>
-				</li>)}
-			</ul>
+			<List searchArray={searchArray} handleDelete={handleDelete} />
 		</div>
 	);
 }
