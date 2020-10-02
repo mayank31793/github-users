@@ -11,7 +11,8 @@ const List = ({searchArray, handleDelete}) => {
     return (
         <>
             <ul>
-			    {searchArray.map((res) => <li key={res.id}>
+                {searchArray.length !==0 ?
+			    searchArray.map((res) => <li key={res.id}>
 					<div className="profilePic">
 						<img src={res.avatar_url} alt="avatar" />
 					</div>
@@ -52,7 +53,13 @@ const List = ({searchArray, handleDelete}) => {
 							<img src={deleteImg} alt="delete" />
 						</div>
 					</div>
-				</li>)}
+                </li>):
+                <li className="emptyList">
+                    <div className="emptyListImage">
+                        <img src={githubImg} alt="empty" />
+                    </div>
+                    <p>Search and add Users in the List</p>
+                </li>}
 			</ul>
         </>
     );

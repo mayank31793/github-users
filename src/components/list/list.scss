@@ -1,0 +1,19 @@
+.emptyList{
+    opacity: 0.6;
+    flex-direction: column;
+    .emptyListImage{
+        width: 400px;
+        height: 400px;
+        margin: 0 auto;
+    }
+    img{
+        width:100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    p{
+        margin-top: 10px;
+        font-size: 30px;
+        text-align-last: center;
+    }
+}
