@@ -8,7 +8,7 @@ import nameImg from './assets/name.svg';
 import followersImg from './assets/followers.svg';
 
 import './App.scss';
-import Loader from './components/loader';
+import Loader from './components/loader/loader';
 
 function App() {
 	const [search, setSearch] = useState('');
